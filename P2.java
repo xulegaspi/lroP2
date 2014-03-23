@@ -9,6 +9,7 @@ public class P2 extends HttpServlet {
     {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        
         out.println("<html><head><title>Servicio de TV</title>");
         out.println("</head><body>");
         out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
@@ -26,6 +27,9 @@ public class P2 extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
     	    throws IOException, ServletException
     {
+    	response.setContentType("text/html");
+    	
+        PrintWriter out = response.getWriter();
     	out.println("<h1>POST</h1>");
     }
 }
