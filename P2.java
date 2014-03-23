@@ -1,3 +1,6 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 public class P2 extends HttpServlet {
 	private String message;
