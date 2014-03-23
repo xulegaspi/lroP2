@@ -27,9 +27,11 @@ public class P2 extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
     	    throws IOException, ServletException
     {
-    	response.setContentType("text/html");
+    	phase = request.getParameter("fase");
     	
+    	response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-    	out.println("<h1>POST</h1>");
+        
+    	out.println("<h1>" + phase + "</h1>");
     }
 }
