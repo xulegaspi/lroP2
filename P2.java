@@ -74,7 +74,5 @@ public class P2 extends HttpServlet {
     	else if(step.equals(2)){
     		
     	}
-        
-    	out.println("<h1>" + phase + "</h1>");
     }
 }
