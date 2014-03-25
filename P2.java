@@ -40,11 +40,12 @@ public class P2 extends HttpServlet {
     		    out.println("<h2>Series</h2>");
     		    out.println("<h3>Selecciona un d&iacute;a:</h3>");
     		    out.println("<form method='POST' action='?step=2'>");
-    		    out.println("<input type='radio' name='dia' value='01/12/2013' checked> 01/12/2013<BR>");
-    		    out.println("<input type='radio' name='dia' value='02/12/2013' checked> 02/12/2013<BR>");
-    		    out.println("<input type='radio' name='dia' value='03/12/2013' checked> 03/12/2013<BR>");
-    		    out.println("<input type='radio' name='dia' value='04/12/2013' checked> 04/12/2013<BR>");
-    		    out.println("<input type='radio' name='dia' value='05/12/2013' checked> 05/12/2013<BR>");
+    		    out.println("<input type='hidden' name='query' value='series'>");
+    		    out.println("<input type='radio' name='day' value='01/12/2013' checked> 01/12/2013<BR>");
+    		    out.println("<input type='radio' name='day' value='02/12/2013' checked> 02/12/2013<BR>");
+    		    out.println("<input type='radio' name='day' value='03/12/2013' checked> 03/12/2013<BR>");
+    		    out.println("<input type='radio' name='day' value='04/12/2013' checked> 04/12/2013<BR>");
+    		    out.println("<input type='radio' name='day' value='05/12/2013' checked> 05/12/2013<BR>");
     		    out.println("<p><input type='submit' value='Enviar'>");
     		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].method=\"GET\"'>");
     		    out.println("</form>");
@@ -57,6 +58,7 @@ public class P2 extends HttpServlet {
    		     	out.println("<h2>Pel&iacute;culas</h2>");
    		     	out.println("<h3>Selecciona un idioma:</h3>");
    		     	out.println("<form method='POST' action='?step=2'>");
+   		     	out.println("<input type='hidden' name='query' value='films'>");
    		     	out.println("<input type='radio' name='idioma' value='en' checked> en<BR>");
    		     	out.println("<input type='radio' name='idioma' value='fr' checked> fr<BR>");
    		     	out.println("<input type='radio' name='idioma' value='it' checked> it<BR>");
@@ -72,7 +74,28 @@ public class P2 extends HttpServlet {
     		}
     	}
     	else if(step.equals(2)){
-    		
+    		String query = request.getParameter("query");
+    		out.println(query);
+    		if(query.equals("series")){
+    			String day = request.getParameter("day");
+    			out.println("<html><head><title>Servicio TV</title>");
+    		    out.println("</head><body>");
+    		    out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
+    		    out.println("<h2>D&iacute;a:" + day + "</h2>");
+    		    out.println("<h3>Selecciona un canal:</h3>");
+    		    out.println("<form method='POST' action='?step=3'>");
+    		    out.println("<input type='hidden' name='query' value='series'>");
+    		    out.println("<input type='hidden' name='day' value='" + day + "'>");
+    		    out.println("<input type='radio' name='channel' value='TVE' checked> TVE<BR>");
+    		    out.println("<input type='radio' name='channel' value='Antena3' checked> Antena3<BR>");
+    		    out.println("<input type='radio' name='channel' value='Telecinco' checked> Telecinco<BR>");
+    		    out.println("<input type='radio' name='channel' value='todos' checked> Todos los canales<BR>");
+    		    out.println("<p><input type='submit' value='Enviar'>");
+    		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].action=\"?fase=1&consulta=1\"'>");
+    		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].method=\"GET\"'>");
+    		    out.println("</form>");
+    		    out.println("</body></html>");
+    		}
     	}
     }
 }
