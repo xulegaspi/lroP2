@@ -9,7 +9,7 @@ public class P2 extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
-    	TvGuide = new TvGuide();
+    	TvGuide = new TvmlReader();
     	
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();

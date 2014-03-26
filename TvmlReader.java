@@ -2,7 +2,7 @@ import java.io.*;
 
 public class TvmlReader {
 
-	void XmlReader(/*tvml1*/){
+	void TvmlReader(/*tvml1*/){
 		
 	}
 	
