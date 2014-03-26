@@ -46,11 +46,11 @@ public class P2 extends HttpServlet {
     		    out.println("<form method='POST' action='?step=2'>");
     		    out.println("<input type='hidden' name='query' value='movies'>");
     		    String[] days = TvGuide.getDays();
-    		    for(int ii=0; ii<days.length-1; ii++){
+    		    for(int ii=0; ii<days.length; ii++){
     		    	out.println("<input type='radio' name='day' value='" + days[ii] + "' > " + days[ii] + "<BR>");
-    		    }
-    		    if(days.length>0){
-    		    	out.println("<input type='radio' name='day' value='" + days[days.length-1] + "' checked>" + days[days.length-1] + "<BR>");
+    		    	if(ii==days.length-1){
+        		    	out.println("<input type='radio' name='day' value='" + days[ii] + "' checked>" + days[ii] + "<BR>");
+        		    }
     		    }
     		    out.println("<p><input type='submit' value='Enviar'>");
     		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].method=\"GET\"'>");
@@ -110,11 +110,13 @@ public class P2 extends HttpServlet {
     		    out.println("<form method='POST' action='?step=3'>");
     		    out.println("<input type='hidden' name='query' value='series'>");
     		    out.println("<input type='hidden' name='language' value='" + language + "'>");
-    		    out.println("<input type='radio' name='day' value='01/12/2013' > 01/12/2013<BR>");
-    		    out.println("<input type='radio' name='day' value='02/12/2013' > 02/12/2013<BR>");
-    		    out.println("<input type='radio' name='day' value='03/12/2013' > 03/12/2013<BR>");
-    		    out.println("<input type='radio' name='day' value='04/12/2013' > 04/12/2013<BR>");
-    		    out.println("<input type='radio' name='day' value='05/12/2013' checked> 05/12/2013<BR>");
+    		    String[] days = TvGuide.getDays();
+    		    for(int ii=0; ii<days.length; ii++){
+    		    	out.println("<input type='radio' name='day' value='" + days[ii] + "' > " + days[ii] + "<BR>");
+    		    	if(ii==days.length-1){
+        		    	out.println("<input type='radio' name='day' value='" + days[ii] + "' checked>" + days[ii] + "<BR>");
+        		    }
+    		    }
     		    out.println("<p><input type='submit' value='Enviar'>");
     		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].action=\"?step=1\"'>");
     		    out.println("<input type='submit' value='Inicio' onClick='document.forms[0].method=\"GET\"'>");
