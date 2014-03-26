@@ -3,10 +3,14 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class P2 extends HttpServlet {
+	
+	TvmlReader TvGuide;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
+    	TvGuide = new TvGuide();
+    	
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         
@@ -41,10 +45,10 @@ public class P2 extends HttpServlet {
     		    out.println("<h3>Selecciona un d&iacute;a:</h3>");
     		    out.println("<form method='POST' action='?step=2'>");
     		    out.println("<input type='hidden' name='query' value='movies'>");
-    		    out.println("<input type='radio' name='day' value='01/12/2013' > 01/12/2013<BR>");
-    		    out.println("<input type='radio' name='day' value='02/12/2013' > 02/12/2013<BR>");
-    		    out.println("<input type='radio' name='day' value='03/12/2013' > 03/12/2013<BR>");
-    		    out.println("<input type='radio' name='day' value='04/12/2013' > 04/12/2013<BR>");
+    		    String[] days = TvGuide.getDays();
+    		    for(int ii=i; ii<days.length(); ii++){
+    		    	out.println("<input type='radio' name='day' value='" + days(ii) + "' > " + days(ii) + "<BR>");
+    		    }
     		    out.println("<input type='radio' name='day' value='05/12/2013' checked> 05/12/2013<BR>");
     		    out.println("<p><input type='submit' value='Enviar'>");
     		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].method=\"GET\"'>");
