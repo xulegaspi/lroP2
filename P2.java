@@ -127,7 +127,7 @@ public class P2 extends HttpServlet {
     			String channel = request.getParameter("channel");
     			
     			out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
-    		    out.println("<h2>Idioma: " + language + ", canal: " + channel + "</h2>");
+    		    out.println("<h2>D&iacute;a: " + day + ", canal: " + channel + "</h2>");
     		    out.println("<h3>Estas son las pel&iacute;culas:</h3>");
     		    out.println("<ul>");
     		    out.println("<li> Pel&iacute;cula 1 a las 12:00<BR>");
