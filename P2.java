@@ -46,8 +46,8 @@ public class P2 extends HttpServlet {
     		    out.println("<form method='POST' action='?step=2'>");
     		    out.println("<input type='hidden' name='query' value='movies'>");
     		    String[] days = TvGuide.getDays();
-    		    for(int ii=1; ii<days.length(); ii++){
-    		    	out.println("<input type='radio' name='day' value='" + days(ii) + "' > " + days(ii) + "<BR>");
+    		    for(int ii=1; ii<days.lengt); ii++){
+    		    	out.println("<input type='radio' name='day' value='" + days[ii] + "' > " + days[ii] + "<BR>");
     		    }
     		    out.println("<input type='radio' name='day' value='05/12/2013' checked> 05/12/2013<BR>");
     		    out.println("<p><input type='submit' value='Enviar'>");
