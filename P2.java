@@ -37,10 +37,10 @@ public class P2 extends HttpServlet {
     			out.println("<html><head><title>Servicio TV</title>");
     		    out.println("</head><body>");
     		    out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
-    		    out.println("<h2>Series</h2>");
+    		    out.println("<h2>Pel&iacute;culas</h2>");
     		    out.println("<h3>Selecciona un d&iacute;a:</h3>");
     		    out.println("<form method='POST' action='?step=2'>");
-    		    out.println("<input type='hidden' name='query' value='series'>");
+    		    out.println("<input type='hidden' name='query' value='movies'>");
     		    out.println("<input type='radio' name='day' value='01/12/2013' > 01/12/2013<BR>");
     		    out.println("<input type='radio' name='day' value='02/12/2013' > 02/12/2013<BR>");
     		    out.println("<input type='radio' name='day' value='03/12/2013' > 03/12/2013<BR>");
@@ -55,10 +55,10 @@ public class P2 extends HttpServlet {
     			out.println("<html><head><title>Servicio TV</title>");
    		     	out.println("</head><body>");
    		     	out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
-   		     	out.println("<h2>Pel&iacute;culas</h2>");
+   		     	out.println("<h2>Series</h2>");
    		     	out.println("<h3>Selecciona un idioma:</h3>");
    		     	out.println("<form method='POST' action='?step=2'>");
-   		     	out.println("<input type='hidden' name='query' value='movies'>");
+   		     	out.println("<input type='hidden' name='query' value='series'>");
    		     	out.println("<input type='radio' name='language' value='en' > en<BR>");
    		     	out.println("<input type='radio' name='language' value='fr' > fr<BR>");
    		     	out.println("<input type='radio' name='language' value='it' > it<BR>");
@@ -83,7 +83,7 @@ public class P2 extends HttpServlet {
     		    out.println("<h2>D&iacute;a:" + day + "</h2>");
     		    out.println("<h3>Selecciona un canal:</h3>");
     		    out.println("<form method='POST' action='?step=3'>");
-    		    out.println("<input type='hidden' name='query' value='series'>");
+    		    out.println("<input type='hidden' name='query' value='movies'>");
     		    out.println("<input type='hidden' name='day' value='" + day + "'>");
     		    out.println("<input type='radio' name='channel' value='TVE' > TVE<BR>");
     		    out.println("<input type='radio' name='channel' value='Antena3' > Antena3<BR>");
@@ -102,7 +102,7 @@ public class P2 extends HttpServlet {
     		    out.println("<h2>Idioma:" + language + "</h2>");
     		    out.println("<h3>Selecciona un d&iacute;a:</h3>");
     		    out.println("<form method='POST' action='?step=3'>");
-    		    out.println("<input type='hidden' name='query' value='movies'>");
+    		    out.println("<input type='hidden' name='query' value='series'>");
     		    out.println("<input type='hidden' name='language' value='" + language + "'>");
     		    out.println("<input type='radio' name='day' value='01/12/2013' > 01/12/2013<BR>");
     		    out.println("<input type='radio' name='day' value='02/12/2013' > 02/12/2013<BR>");
