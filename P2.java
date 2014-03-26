@@ -139,7 +139,7 @@ public class P2 extends HttpServlet {
     		    out.println("</ul>");
     		    out.println("<form method='POST'>");
     		    out.println("<input type='hidden' name='query' value='movies'>");
-    		    out.println("<input type='hidden' name='language' value='" + language + "'>");
+    		    out.println("<input type='hidden' name='day' value='" + day + "'>");
     		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].action=\"?step=2\"'>");
     		    out.println("<input type='submit' value='Inicio' onClick='document.forms[0].method=\"GET\"'>");
     		    out.println("</form>");
@@ -171,6 +171,8 @@ public class P2 extends HttpServlet {
     		}
     	}
     	else if(step.equals("4")){
+    		String query = request.getParameter("query");
+    		
     		if(query.equals("series")){
     			String day = request.getParameter("day");
     			String language = request.getParameter("language");
