@@ -20,7 +20,7 @@ public class P2 extends HttpServlet {
         out.println("<h2>Bienvenido a este servicio</h2>");
         out.println("<h3>Selecciona lo que quieres buscar:</h3>");
         out.println("<form method='POST' action='?step=1'>");
-        out.println("<input type='radio' name='query' value='series' checked> Consulta Series<br>");
+        out.println("<input type='radio' name='query' value='shows' checked> Consulta series<br>");
        	out.println("<input type='radio' name='query' value='movies'> Consulta Pel&iacute;culas<br>");
         out.println("<p><input type='submit' value='Enviar'>");
         out.println("</form>");
@@ -47,29 +47,35 @@ public class P2 extends HttpServlet {
     		    out.println("<input type='hidden' name='query' value='movies'>");
     		    String[] days = TvGuide.getDays();
     		    for(int ii=0; ii<days.length; ii++){
-    		    	out.println("<input type='radio' name='day' value='" + days[ii] + "' > " + days[ii] + "<BR>");
     		    	if(ii==days.length-1){
-        		    	out.println("<input type='radio' name='day' value='" + days[ii] + "' checked>" + days[ii] + "<BR>");
+        		    	out.println("<input type='radio' name='day' value='" + days[ii] + "' checked> " + days[ii] + "<BR>");
         		    }
+    		    	else{
+    		    		out.println("<input type='radio' name='day' value='" + days[ii] + "' > " + days[ii] + "<BR>");
+   		     		}
     		    }
     		    out.println("<p><input type='submit' value='Enviar'>");
     		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].method=\"GET\"'>");
     		    out.println("</form>");
     		    out.println("</body></html>");
     		}
-    		else if(query.equals("series")){
+    		else if(query.equals("shows")){
     			out.println("<html><head><title>Servicio TV</title>");
    		     	out.println("</head><body>");
    		     	out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
-   		     	out.println("<h2>Series</h2>");
+   		     	out.println("<h2>shows</h2>");
    		     	out.println("<h3>Selecciona un idioma:</h3>");
    		     	out.println("<form method='POST' action='?step=2'>");
-   		     	out.println("<input type='hidden' name='query' value='series'>");
-   		     	out.println("<input type='radio' name='language' value='en' > en<BR>");
-   		     	out.println("<input type='radio' name='language' value='fr' > fr<BR>");
-   		     	out.println("<input type='radio' name='language' value='it' > it<BR>");
-   		     	out.println("<input type='radio' name='language' value='de' > de<BR>");
-   		     	out.println("<input type='radio' name='language' value='es' checked> es<BR>");
+   		     	out.println("<input type='hidden' name='query' value='shows'>");
+   		     	String[] languages = TvGuide.getLanguages();
+   		     	for(int ii=0; ii<languages.length; ii++){
+   		     		if(ii==languages.length-1){
+   		     			out.println("<input type='radio' name='language' value='" + languages[ii] + "' checked> " + languages[ii] + "<BR>");
+   		     		}
+   		     		else{
+   		     			out.println("<input type='radio' name='language' value='" + languages[ii] + "' > " + languages[ii] + "<BR>");
+   		     		}
+   		     	}
    		     	out.println("<p><input type='submit' value='Enviar'>");
    		     	out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].method=\"GET\"'>");
    		     	out.println("</form>");
@@ -91,31 +97,36 @@ public class P2 extends HttpServlet {
     		    out.println("<form method='POST' action='?step=3'>");
     		    out.println("<input type='hidden' name='query' value='movies'>");
     		    out.println("<input type='hidden' name='day' value='" + day + "'>");
-    		    out.println("<input type='radio' name='channel' value='TVE' > TVE<BR>");
-    		    out.println("<input type='radio' name='channel' value='Antena3' > Antena3<BR>");
-    		    out.println("<input type='radio' name='channel' value='Telecinco' > Telecinco<BR>");
-    		    out.println("<input type='radio' name='channel' value='todos' checked> Todos los canales<BR>");
+    		    String[] channels = TvGuide.getChannels();
+   		     	for(int ii=0; ii<channels.length; ii++){
+   		     		out.println("<input type='radio' name='channel' value='" + channels[ii] + "' > " + channels[ii] + "<BR>");
+   		     		if(ii==channels.length-1){
+   		     			out.println("<input type='radio' name='channel' value='all' checked> Todos<BR>");
+   		     		}
+   		     	}
     		    out.println("<p><input type='submit' value='Enviar'>");
     		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].action=\"?step=1\"'>");
     		    out.println("<input type='submit' value='Inicio' onClick='document.forms[0].method=\"GET\"'>");
     		    out.println("</form>");
     		    out.println("</body></html>");
     		}
-    		else if(query.equals("series")){
+    		else if(query.equals("shows")){
     			String language = request.getParameter("language");
     			
     			out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
     		    out.println("<h2>Idioma:" + language + "</h2>");
     		    out.println("<h3>Selecciona un d&iacute;a:</h3>");
     		    out.println("<form method='POST' action='?step=3'>");
-    		    out.println("<input type='hidden' name='query' value='series'>");
+    		    out.println("<input type='hidden' name='query' value='shows'>");
     		    out.println("<input type='hidden' name='language' value='" + language + "'>");
     		    String[] days = TvGuide.getDays();
     		    for(int ii=0; ii<days.length; ii++){
-    		    	out.println("<input type='radio' name='day' value='" + days[ii] + "' > " + days[ii] + "<BR>");
     		    	if(ii==days.length-1){
-        		    	out.println("<input type='radio' name='day' value='" + days[ii] + "' checked>" + days[ii] + "<BR>");
+        		    	out.println("<input type='radio' name='day' value='" + days[ii] + "' checked> " + days[ii] + "<BR>");
         		    }
+    		    	else{
+    		    		out.println("<input type='radio' name='day' value='" + days[ii] + "' > " + days[ii] + "<BR>");
+   		     		}
     		    }
     		    out.println("<p><input type='submit' value='Enviar'>");
     		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].action=\"?step=1\"'>");
@@ -138,12 +149,17 @@ public class P2 extends HttpServlet {
     		    out.println("<h2>D&iacute;a: " + day + ", canal: " + channel + "</h2>");
     		    out.println("<h3>Estas son las pel&iacute;culas:</h3>");
     		    out.println("<ul>");
-    		    out.println("<li> Pel&iacute;cula 1 a las 12:00<BR>");
-    		    out.println("Sinopsis de la pel&iacute;cula 1<P>");
-    		    out.println("<li> Pel&iacute;cula 2 a las 16:00<BR>");
-    		    out.println("Sinopsis de la pel&iacute;cula 2<P>");
-    		    out.println("<li> Pel&iacute;cula 3 a las 21:00<BR>");
-    		    out.println("Sinopsis de la pel&iacute;cula 3<P>");
+    		    FilmPkg[] films = TvGuide.getFilms();
+    		    for(int ii=0; ii<films.length; ii++){
+    		    	if(ii==films.length-1){
+        		    	out.println(" <li>" + films[ii].title + " a las " + films[ii].time + "<BR>");
+        		    	out.println(films[ii].synopsis + "<P>");
+        		    }
+    		    	else{
+    		    		out.println(" <li>" + films[ii].title + " a las " + films[ii].time + "<BR>");
+        		    	out.println(films[ii].synopsis + "<P>");
+   		     		}
+    		    }
     		    out.println("</ul>");
     		    out.println("<form method='POST'>");
     		    out.println("<input type='hidden' name='query' value='movies'>");
@@ -153,7 +169,7 @@ public class P2 extends HttpServlet {
     		    out.println("</form>");
     		    out.println("</body></html>");
     		}
-    		else if(query.equals("series")){
+    		else if(query.equals("shows")){
     			String day = request.getParameter("day");
     			String language = request.getParameter("language");
     			
@@ -161,13 +177,16 @@ public class P2 extends HttpServlet {
     		    out.println("<h2>Idioma: " + language + ", d&iacute;a: " + day + "</h2>");
     		    out.println("<h3>Selecciona un canal:</h3>");
     		    out.println("<form method='POST' action='?step=4'>");
-    		    out.println("<input type='hidden' name='query' value='series'>");
+    		    out.println("<input type='hidden' name='query' value='shows'>");
     		    out.println("<input type='hidden' name='language' value='" + language + "'>");
     		    out.println("<input type='hidden' name='day' value='" + day + "'>");
-    		    out.println("<input type='radio' name='channel' value='TVE' > TVE<BR>");
-    		    out.println("<input type='radio' name='channel' value='Antena3' > Antena3<BR>");
-    		    out.println("<input type='radio' name='channel' value='Telecinco' > Telecinco<BR>");
-    		    out.println("<input type='radio' name='channel' value='todos' checked> Todos los canales<BR>");
+    		    String[] channels = TvGuide.getChannels();
+   		     	for(int ii=0; ii<channels.length; ii++){
+   		     		out.println("<input type='radio' name='channel' value='" + channels[ii] + "' > " + channels[ii] + "<BR>");
+   		     		if(ii==channels.length-1){
+   		     			out.println("<input type='radio' name='channel' value='all' checked> Todos<BR>");
+   		     		}
+   		     	}
     		    out.println("<p><input type='submit' value='Enviar'>");
     		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].action=\"?step=2\"'>");
     		    out.println("<input type='submit' value='Inicio' onClick='document.forms[0].method=\"GET\"'>");
@@ -181,7 +200,7 @@ public class P2 extends HttpServlet {
     	else if(step.equals("4")){
     		String query = request.getParameter("query");
     		
-    		if(query.equals("series")){
+    		if(query.equals("shows")){
     			String day = request.getParameter("day");
     			String language = request.getParameter("language");
     			String channel = request.getParameter("channel");
@@ -190,12 +209,20 @@ public class P2 extends HttpServlet {
     		    out.println("<h2>Idioma: " + language + ", d&iacute;a: " + day + " , canal: " + channel + "</h2>");
     		    out.println("<h3><h3>Estos son los programas:</h3></h3>");
     		    out.println("<ul>");
-    		    out.println("<li> Programa 1 (edad m&iacute;nima 14)<BR>");
-    		    out.println("<li> Programa 2 (edad m&iacute;nima 14)<BR>");
-    		    out.println("<li> Programa 3 (edad m&iacute;nima 14)<BR>");
+    		    ShowPkg[] shows = TvGuide.getShows();
+    		    for(int ii=0; ii<shows.length; ii++){
+    		    	if(ii==shows.length-1){
+        		    	out.println(" <li>" + shows[ii].name + " a las " + shows[ii].time + "<BR>");
+        		    	out.println("edad m&iacute;nima " + shows[ii].age + " años. <P>");
+        		    }
+    		    	else{
+    		    		out.println(" <li>" + shows[ii].name + " a las " + shows[ii].time + "<BR>");
+        		    	out.println("edad m&iacute;nima " + shows[ii].age + " años. <P>");
+   		     		}
+    		    }
     		    out.println("</ul>");
     		    out.println("<form method='POST'>");
-    		    out.println("<input type='hidden' name='query' value='series'>");
+    		    out.println("<input type='hidden' name='query' value='shows'>");
     		    out.println("<input type='hidden' name='language' value='" + language + "'>");
     		    out.println("<input type='hidden' name='day' value='" + day + "'>");
     		    out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].action=\"?step=3\"'>");
