@@ -1,0 +1,17 @@
+<!DOCTYPE Programacion [
+
+<!ELEMENT Programacion (Fecha, Canal+)>
+<!ELEMENT Fecha (#PCDATA)>
+<!ELEMENT Canal (NombreCanal, Formato?, Programa+)>
+<!ELEMENT Programa (NombrePrograma, Categoria, Intervalo,#PCDATA)>
+<!ELEMENT Categoria (#PCDATA)>
+<!ELEMENT Intervalo (HoraInicio,(HoraFin | Duracion),OtraEmision?)>
+<!ELEMENT OtraEmision (Fecha, UrlTVML)>
+<!ELEMENT UrlTVML (#PCDATA)>
+
+<!ATTLIST Canal lang (en|es|fr|de|it)>
+<!ATTLIST Canal teletexto (si|no)>
+<!ATTLIST Programa langs (#PCDATA)>
+<!ATTLIST Programa edadminima (#PCDATA)>
+
+]>
