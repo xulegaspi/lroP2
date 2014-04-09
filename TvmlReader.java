@@ -56,15 +56,3 @@ public class TvmlReader {
 		return shows;
 	}
 }
-
-class FilmPkg {
-	public String title;
-	public String time;
-	public String synopsis;
-}
-
-class ShowPkg {
-	public String name;
-	public String time;
-	public String age;
-}
