@@ -252,9 +252,9 @@ public class Lro22P2 extends HttpServlet {
                             out.println("<input type='hidden' name='dia' value='" + dia + "'>");
 
                             List<String> canales = Guia_TV.getChannels(dia, idioma);
-                            it = canales.listIterator();
+                            ListIterator<String> it = canales.listIterator();
                             for(int ii=0; ii<canales.size(); ii++) {
-                                String canal = it.next();
+                                canal = it.next();
                                 out.println("<input type='radio' name='canal' value='" + canal + "' > " + canal + "<BR>");
                                 if(ii==canales.size()-1) {
                                     out.println("<input type='radio' name='canal' value='all' checked> Todos<BR>");
