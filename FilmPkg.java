@@ -1,5 +1,5 @@
 class FilmPkg {
-	public String title;
-	public String time;
-	public String synopsis;
+	public String titulo;
+	public String fecha;
+	public String sinopsis;
 }

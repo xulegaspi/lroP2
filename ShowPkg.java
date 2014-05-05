@@ -1,5 +1,5 @@
 class ShowPkg {
-	public String name;
-	public String time;
-	public String age;
+	public String nombre;
+	public String fecha;
+	public String edad;
 }
