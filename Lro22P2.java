@@ -101,7 +101,7 @@ public class Lro22P2 extends HttpServlet {
                         out.println("<input type='hidden' name='consulta' value='shows'>");
 
                         List<String> idiomas = Guia_TV.getLanguages();
-                        it = idiomas.listIterator();
+                        ListIterator<String> it = idiomas.listIterator();
                         for(int ii=0; ii<idiomas.size(); ii++) {
                             String idioma = it.next();
                             out.println("<input type='radio' name='idioma' value='" + idioma + "' > " + idioma + "<BR>");
@@ -129,7 +129,7 @@ public class Lro22P2 extends HttpServlet {
                 else cons = 1;
                     switch (cons) {
                         case 1:
-                            dia = request.getParameter("dia");
+                            String dia = request.getParameter("dia");
 
                             out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
                             out.println("<h2>D&iacute;a:" + dia + "</h2>");
@@ -139,7 +139,7 @@ public class Lro22P2 extends HttpServlet {
                             out.println("<input type='hidden' name='dia' value='" + dia + "'>");
 
                             List<String> canales = Guia_TV.getChannels(dia);
-                            it = canales.listIterator();
+                            ListIterator<String> it = canales.listIterator();
                             for(int ii=0; ii<canales.size(); ii++) {
                                 String canal = it.next();
                                 out.println("<input type='radio' name='canal' value='" + canal + "' > " + canal + "<BR>");
@@ -162,7 +162,7 @@ public class Lro22P2 extends HttpServlet {
                             break;
 
                         case 2:
-                            idioma = request.getParameter("idioma");
+                            String idioma = request.getParameter("idioma");
 
                             out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
                             out.println("<h2>Idioma:" + idioma + "</h2>");
@@ -171,8 +171,8 @@ public class Lro22P2 extends HttpServlet {
                             out.println("<input type='hidden' name='consulta' value='shows'>");
                             out.println("<input type='hidden' name='idioma' value='" + idioma + "'>");
 
-                            dias = Guia_TV.getDays();
-                            it = dias.listIterator();
+                            List<String> dias = Guia_TV.getDays();
+                            ListIterator<String> it = dias.listIterator();
                             for(int ii=0; ii<dias.size(); ii++) {
                                 String dia = it.next();
                                 if(ii==dias.size()-1) {
@@ -206,8 +206,8 @@ public class Lro22P2 extends HttpServlet {
 
                     switch (cons) {
                         case 1:
-                            dia = request.getParameter("dia");
-                            canal = request.getParameter("canal");
+                            String dia = request.getParameter("dia");
+                            String canal = request.getParameter("canal");
 
                             out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
                             out.println("<h2>D&iacute;a: " + dia + ", canal: " + canal + "</h2>");
@@ -241,7 +241,7 @@ public class Lro22P2 extends HttpServlet {
 
                         case 2:
                             dia = request.getParameter("dia");
-                            idioma = request.getParameter("idioma");
+                            String idioma = request.getParameter("idioma");
 
                             out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
                             out.println("<h2>Idioma: " + idioma + ", d&iacute;a: " + dia + "</h2>");
@@ -251,8 +251,8 @@ public class Lro22P2 extends HttpServlet {
                             out.println("<input type='hidden' name='idioma' value='" + idioma + "'>");
                             out.println("<input type='hidden' name='dia' value='" + dia + "'>");
 
-                            canales = Guia_TV.getChannels(dia, idioma);
-                            it = canales.listIterator();
+                            List<String> canales = Guia_TV.getChannels(dia, idioma);
+                            ListIterator<String> it = canales.listIterator();
                             for(int ii=0; ii<canales.size(); ii++) {
                                 String canal = it.next();
                                 out.println("<input type='radio' name='canal' value='" + canal + "' > " + canal + "<BR>");
@@ -283,9 +283,9 @@ public class Lro22P2 extends HttpServlet {
 
                     switch (cons) {
                         case 2:
-                            dia = request.getParameter("dia");
-                            idioma = request.getParameter("idioma");
-                            canal = request.getParameter("canal");
+                            String dia = request.getParameter("dia");
+                            String idioma = request.getParameter("idioma");
+                            String canal = request.getParameter("canal");
 
                             out.println("<h1>Servicio de consulta de la programaci&oacute;n</h1>");
                             out.println("<h2>Idioma: " + idioma + ", d&iacute;a: " + dia + " , canal: " + canal + "</h2>");
