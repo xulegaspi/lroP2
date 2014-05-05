@@ -215,9 +215,9 @@ public class Lro22P2 extends HttpServlet {
                             out.println("<ul>");
 
                             List<FilmPkg> films = Guia_TV.getFilms(dia, canal);
-                            ListIterator<FilmPkg> it = films.listIterator();
+                            ListIterator<FilmPkg> it2 = films.listIterator();
                             for(int ii=0; ii<films.size(); ii++) {
-                                FilmPkg film = it.next();
+                                FilmPkg film = it2.next();
                                 out.println(" <li>" + film.titulo + " a las " + film.fecha + "<BR>");
                                 out.println(film.sinopsis + "<P>");
                             }
@@ -254,7 +254,7 @@ public class Lro22P2 extends HttpServlet {
                             List<String> canales = Guia_TV.getChannels(dia, idioma);
                             it = canales.listIterator();
                             for(int ii=0; ii<canales.size(); ii++) {
-                                canal = it.next();
+                                String canal = it.next();
                                 out.println("<input type='radio' name='canal' value='" + canal + "' > " + canal + "<BR>");
                                 if(ii==canales.size()-1) {
                                     out.println("<input type='radio' name='canal' value='all' checked> Todos<BR>");
