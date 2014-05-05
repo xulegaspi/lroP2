@@ -37,7 +37,7 @@
         <HoraFin>20:00</HoraFin>
         <OtraEmision>
 	   <Fecha>23/12/2001</Fecha>
-	   <UrlTVML>http://localhost:8022/lro22/tvml-ok2.xml</UrlTVML>
+	   <UrlTVML>http://localhost:8022/lro22/tvml-2.xml</UrlTVML>
 	</OtraEmision>
       </Intervalo>
     </Programa>

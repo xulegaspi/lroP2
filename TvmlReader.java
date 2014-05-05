@@ -44,7 +44,7 @@ public class TvmlReader {
             langsList = new ArrayList<String>();
             daysList = new ArrayList<String>();
 
-            Document doc = db.parse("http://localhost:8022/lro22/tvml-ok.xml");
+            Document doc = db.parse("http://localhost:8022/lro22/tvml-1.xml");
             DOMList.add(doc);
 
             ListIterator<Document> it = DOMList.listIterator();
