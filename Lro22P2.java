@@ -104,7 +104,11 @@ public class Lro22P2 extends HttpServlet {
                         it = idiomas.listIterator();
                         for(int ii=0; ii<idiomas.size(); ii++) {
                             String idioma = it.next();
-                            out.println("<input type='radio' name='idioma' value='" + idioma + "' > " + idioma + "<BR>");
+                            if(ii=idiomas.size()-1) {
+                                out.println("<input type='radio' name='idioma' value='" + idioma + "' checked> " + idioma + "<BR>");
+                            } else {
+                                out.println("<input type='radio' name='idioma' value='" + idioma + "' > " + idioma + "<BR>");
+                            }
                         }
                         /*
                             out.println("<input type='radio' name='idioma' value='en'> en<BR>");
@@ -297,7 +301,7 @@ public class Lro22P2 extends HttpServlet {
                             for(int ii=0; ii<shows.size(); ii++) {
                                 ShowPkg show = it.next();
                                 out.println(" <li>" + show.nombre + " a las " + show.fecha + "<BR>");
-                                out.println("edad m&iacute;nima " + show.edad + " años. <P>");
+                                out.println("edad m&iacute;nima " + show.edad + " a&ntildeos. <P>");
                             }
                             /*
                                 out.println(" <li> Programa 1 (edad m&iacute;nima 14)<BR>");
