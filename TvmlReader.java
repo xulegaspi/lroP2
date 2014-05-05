@@ -6,6 +6,7 @@ import java.util.ListIterator;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 
+import com.sun.java.browser.plugin2.DOM;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -51,39 +52,35 @@ public class TvmlReader {
 
             ListIterator<Document> it = DOMList.listIterator();
             int ii=0;
-            do {
+            //do {
+            for (ii=0; ii < DOMList.size(); ii++) {
                 it = DOMList.listIterator(ii);
                 doc = it.next();
                 NodeList lChannels = doc.getElementsByTagName("Canal");
                 daysList.add(doc.getDocumentElement().getElementsByTagName("Fecha").item(0).getTextContent());
 
-                for(int jj=0; jj<lChannels.getLength(); jj++){
-                    Element eChannel = (Element)lChannels.item(jj);
+                for (int jj = 0; jj < lChannels.getLength(); jj++) {
+                    Element eChannel = (Element) lChannels.item(jj);
 
                     // create languages list
                     addLang(eChannel.getAttribute("lang").toString());
-					/*NodeList lPrograms = eChannel.getElementsByTagName("Programa");
-					for(int ij=0; ij<lPrograms.getLength(); ij++){
-						Element eProgram = (Element)lPrograms.item(ij);
-						String lang = eProgram.getAttribute("langs");
-						if(!lang.equals("")) addLang(lang);
-					}*/
 
                     // look for more tvmls
                     NodeList nlUrl = eChannel.getElementsByTagName("UrlTVML");
-                    if(nlUrl.getLength()>0) {
-                        url=nlUrl.item(0).getTextContent();
+                    if (nlUrl.getLength() > 0) {
+                        url = nlUrl.item(0).getTextContent();
                         try {
                             doc = db.parse(url);
                             DOMList.add(doc);
-                        } catch(Exception ex) {
+                        } catch (Exception ex) {
                             ex.printStackTrace();
-                            url="no doc found";
+                            url = "no doc found";
                         }
                     }
                 }
-                ii++;
-            } while(ii<DOMList.size());
+            }
+//                ii++;
+//            } while(ii<DOMList.size());
             return "readed" + ii;
 
         } catch(Exception ex) {
