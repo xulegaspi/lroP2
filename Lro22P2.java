@@ -101,7 +101,7 @@ public class Lro22P2 extends HttpServlet {
                         out.println("<input type='hidden' name='consulta' value='shows'>");
 
                         List<String> idiomas = Guia_TV.getLanguages();
-                        ListIterator<String> it = idiomas.listIterator();
+                        it = idiomas.listIterator();
                         for(int ii=0; ii<idiomas.size(); ii++) {
                             String idioma = it.next();
                             out.println("<input type='radio' name='idioma' value='" + idioma + "' > " + idioma + "<BR>");
@@ -172,9 +172,9 @@ public class Lro22P2 extends HttpServlet {
                             out.println("<input type='hidden' name='idioma' value='" + idioma + "'>");
 
                             List<String> dias = Guia_TV.getDays();
-                            ListIterator<String> it = dias.listIterator();
+                            it = dias.listIterator();
                             for(int ii=0; ii<dias.size(); ii++) {
-                                String dia = it.next();
+                                dia = it.next();
                                 if(ii==dias.size()-1) {
                                     out.println("<input type='radio' name='dia' value='" + dia + "' checked> " + dia + "<BR>");
                                 } else {
@@ -252,9 +252,9 @@ public class Lro22P2 extends HttpServlet {
                             out.println("<input type='hidden' name='dia' value='" + dia + "'>");
 
                             List<String> canales = Guia_TV.getChannels(dia, idioma);
-                            ListIterator<String> it = canales.listIterator();
+                            it = canales.listIterator();
                             for(int ii=0; ii<canales.size(); ii++) {
-                                String canal = it.next();
+                                canal = it.next();
                                 out.println("<input type='radio' name='canal' value='" + canal + "' > " + canal + "<BR>");
                                 if(ii==canales.size()-1) {
                                     out.println("<input type='radio' name='canal' value='all' checked> Todos<BR>");
