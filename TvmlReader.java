@@ -139,16 +139,16 @@ public class TvmlReader {
                             String category = eFilm.getElementsByTagName("Categoria").item(0).getTextContent();
                             if(category.equals("Cine")) {
                                 FilmPkg film = new FilmPkg();
-                                film.title = eFilm.getElementsByTagName("NombrePrograma").item(0).getTextContent();
+                                film.titulo = eFilm.getElementsByTagName("NombrePrograma").item(0).getTextContent();
                                 Element eIntervalo = (Element)eFilm.getElementsByTagName("Intervalo").item(0);
-                                film.time = eIntervalo.getElementsByTagName("HoraInicio").item(0).getTextContent();
+                                film.fecha = eIntervalo.getElementsByTagName("HoraInicio").item(0).getTextContent();
 
                                 Element eFilmCp = (Element)eFilm.cloneNode(true);
                                 eFilmCp.getElementsByTagName("Categoria").item(0).setTextContent("");
                                 eFilmCp.getElementsByTagName("NombrePrograma").item(0).setTextContent("");
                                 ((Element)eFilmCp.getElementsByTagName("Intervalo").item(0)).setTextContent("");
 
-                                film.synopsis = eFilmCp.getTextContent();
+                                film.sinopsis = eFilmCp.getTextContent();
                                 filmList.add(film);
                             }
                         }
@@ -176,10 +176,10 @@ public class TvmlReader {
                         for(int ij=0; ij<lPrograms.getLength(); ij++) {
                             Element eShow = (Element)lPrograms.item(ij);
                             ShowPkg show = new ShowPkg();
-                            show.name = eShow.getElementsByTagName("NombrePrograma").item(0).getTextContent();
+                            show.nombre = eShow.getElementsByTagName("NombrePrograma").item(0).getTextContent();
                             Element eIntervalo = (Element)eShow.getElementsByTagName("Intervalo").item(0);
-                            show.time = eIntervalo.getElementsByTagName("HoraInicio").item(0).getTextContent();
-                            show.age = eShow.getAttribute("edadminima");
+                            show.fecha = eIntervalo.getElementsByTagName("HoraInicio").item(0).getTextContent();
+                            show.edad = eShow.getAttribute("edadminima");
 
                             showList.add(show);
                         }
