@@ -104,7 +104,7 @@ public class Lro22P2 extends HttpServlet {
                         it = idiomas.listIterator();
                         for(int ii=0; ii<idiomas.size(); ii++) {
                             String idioma = it.next();
-                            if(ii=idiomas.size()-1) {
+                            if(ii==idiomas.size()-1) {
                                 out.println("<input type='radio' name='idioma' value='" + idioma + "' checked> " + idioma + "<BR>");
                             } else {
                                 out.println("<input type='radio' name='idioma' value='" + idioma + "' > " + idioma + "<BR>");
