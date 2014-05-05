@@ -86,7 +86,8 @@ public class Lro22P2 extends HttpServlet {
                                 out.println("<input type='radio' name='dia' value='04/12/2013'> 04/12/2013<BR>");
                                 out.println("<input type='radio' name='dia' value='05/12/2013'  checked> 05/12/2013<BR>");
                         */
-                        out.println("<p><input type='submit' value='Enviar'>");
+                        if(dias.size()!=0)
+                            out.println("<p><input type='submit' value='Enviar'>");
                         out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].method=\"GET\"'>");
                         out.println("</form>");
                         out.println("</body></html>");
@@ -117,7 +118,8 @@ public class Lro22P2 extends HttpServlet {
                             out.println("<input type='radio' name='idioma' value='de'> de<BR>");
                             out.println("<input type='radio' name='idioma' value='es'  checked> es<BR>");
                         */
-                        out.println("<p><input type='submit' value='Enviar'>");
+                        if(idiomas.size()!=0)
+                            out.println("<p><input type='submit' value='Enviar'>");
                         out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].method=\"GET\"'>");
                         out.println("</form>");
                         out.println("</body></html>");
@@ -157,8 +159,8 @@ public class Lro22P2 extends HttpServlet {
                                 out.println("<input type='radio' name='canal' value='Telecinco'> Telecinco<BR>");
                                 out.println("<input type='radio' name='canal' value='todos'  checked> Todos los canales<BR>");
                             */
-
-                            out.println("<p><input type='submit' value='Enviar'>");
+                            if(canales.size()!=0)
+                                out.println("<p><input type='submit' value='Enviar'>");
                             out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].action=\"?step=1\"'>");
                             out.println("<input type='submit' value='Inicio' onClick='document.forms[0].method=\"GET\"'>");
                             out.println("</form>");
@@ -192,7 +194,8 @@ public class Lro22P2 extends HttpServlet {
                                 out.println("<input type='radio' name='dia' value='04/12/2013'> 04/12/2013<BR>");
                                 out.println("<input type='radio' name='dia' value='05/12/2013'  checked> 05/12/2013<BR>");
                             */
-                            out.println("<p><input type='submit' value='Enviar'>");
+                            if(dias.size()!=0)
+                                out.println("<p><input type='submit' value='Enviar'>");
                             out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].action=\"?step=1\"'>");
                             out.println("<input type='submit' value='Inicio' onClick='document.forms[0].method=\"GET\"'>");
                             out.println("</form>");
