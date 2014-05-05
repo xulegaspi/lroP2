@@ -6,7 +6,6 @@ import java.util.ListIterator;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 
-import com.sun.java.browser.plugin2.DOM;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
