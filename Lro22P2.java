@@ -270,7 +270,8 @@ public class Lro22P2 extends HttpServlet {
                                 out.println("<input type='radio' name='canal' value='Telecinco'> Telecinco<BR>");
                                 out.println("<input type='radio' name='canal' value='todos'  checked> Todos los canales<BR>");
                             */
-                            out.println("<p><input type='submit' value='Enviar'>");
+                            if(canales.size()!=0)
+                                out.println("<p><input type='submit' value='Enviar'>");
                             out.println("<input type='submit' value='Atr&aacute;s' onClick='document.forms[0].action=\"?step=2\"'>");
                             out.println("<input type='submit' value='Inicio' onClick='document.forms[0].method=\"GET\"'>");
                             out.println("</form>");

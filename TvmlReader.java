@@ -76,8 +76,6 @@ public class TvmlReader {
                     }
                 }
             }
-//                ii++;
-//            } while(ii<DOMList.size());
             return "readed" + ii;
 
         } catch(Exception ex) {
