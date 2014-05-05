@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ISO-8859-1' standalone='no'?>
 
-<!DOCTYPE Programacion SYSTEM "tvml.dtd">
+<!DOCTYPE Programacion SYSTEM "tvml22.dtd">
 
 <Programacion>
   <Fecha><Duracion>140</Duracion>24/12/2013</Fecha>
