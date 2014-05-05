@@ -1,3 +1,6 @@
+import org.xml.sax.SAXParseException;
+import org.xml.sax.helpers.DefaultHandler;
+
 class TVML_ErrorHandler extends DefaultHandler {
     public TVML_ErrorHandler () {}
     public void warning(SAXParseException spe) {
