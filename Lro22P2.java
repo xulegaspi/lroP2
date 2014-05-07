@@ -69,7 +69,7 @@ public class Lro22P2 extends HttpServlet {
                         out.println("<form method='POST' action='?step=2'>");
                         out.println("<input type='hidden' name='consulta' value='movies'>");
 
-                        List<String> dias = Guia_TV.getDays();
+                        List<String> dias = Guia_TV.getDias();
                         ListIterator<String> it = dias.listIterator();
                         for(int ii=0; ii<dias.size(); ii++){
                             String dia = it.next();
@@ -101,7 +101,7 @@ public class Lro22P2 extends HttpServlet {
                         out.println("<form method='POST' action='?step=2'>");
                         out.println("<input type='hidden' name='consulta' value='shows'>");
 
-                        List<String> idiomas = Guia_TV.getLanguages();
+                        List<String> idiomas = Guia_TV.getIdiomas();
                         it = idiomas.listIterator();
                         for(int ii=0; ii<idiomas.size(); ii++) {
                             String idioma = it.next();
@@ -144,7 +144,7 @@ public class Lro22P2 extends HttpServlet {
                             out.println("<input type='hidden' name='consulta' value='movies'>");
                             out.println("<input type='hidden' name='dia' value='" + dia + "'>");
 
-                            List<String> canales = Guia_TV.getChannels(dia);
+                            List<String> canales = Guia_TV.getCanales(dia);
                             ListIterator<String> it = canales.listIterator();
                             for(int ii=0; ii<canales.size(); ii++) {
                                 String canal = it.next();
@@ -177,7 +177,7 @@ public class Lro22P2 extends HttpServlet {
                             out.println("<input type='hidden' name='consulta' value='shows'>");
                             out.println("<input type='hidden' name='idioma' value='" + idioma + "'>");
 
-                            List<String> dias = Guia_TV.getDays();
+                            List<String> dias = Guia_TV.getDias();
                             it = dias.listIterator();
                             for(int ii=0; ii<dias.size(); ii++) {
                                 dia = it.next();
@@ -258,7 +258,7 @@ public class Lro22P2 extends HttpServlet {
                             out.println("<input type='hidden' name='idioma' value='" + idioma + "'>");
                             out.println("<input type='hidden' name='dia' value='" + dia + "'>");
 
-                            List<String> canales = Guia_TV.getChannels(dia, idioma);
+                            List<String> canales = Guia_TV.getCanales(dia, idioma);
                             ListIterator<String> it = canales.listIterator();
                             for(int ii=0; ii<canales.size(); ii++) {
                                 canal = it.next();
